@@ -268,10 +268,10 @@ async def handle_quiz_answer(update, context):
     explanation = context.user_data.get("quiz_explanation")
 
     if user_answer == correct_answer:
-        await update.message.reply_text(f"✅ Правильно!\n{explanation}")
+        await update.message.reply_text(f"{explanation}")
         context.user_data["quiz_correct"] += 1
     else:
-        await update.message.reply_text(f"❌ Неправильно.\nПравильна відповідь: {correct_answer}\n{explanation}")
+        await update.message.reply_text(f"Правильна відповідь: {correct_answer}\n{explanation}")
 
     context.user_data["quiz_index"] += 1
     await send_next_question(update, context)
