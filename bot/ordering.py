@@ -337,11 +337,9 @@ async def handle_ordering_answer(update, context):
     if user_set != expected_set:
         await update.message.reply_text("⚠️ Некоректний ввід. Використовуйте числа у форматі 1-2-3 без пропусків.")
         return
-
     if user_input == correct_answer:
         await update.message.reply_text("✅ Правильно! Чудова робота! 🎉")
     else:
         await update.message.reply_text(f"❌ Неправильно.\nПравильна відповідь: {correct_answer}")
-
-    # Показуємо меню "Що далі?" тільки тут (після відповіді)
+    
     await update.message.reply_text("⬇️ Що далі?", reply_markup=get_ordering_task_menu())
